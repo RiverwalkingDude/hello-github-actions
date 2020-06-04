@@ -1,14 +1,17 @@
-on:
-# Trigger the workflow on push or pull request,
-# but only for the master branch
-push:
-branches:
-  - master
-pull_request:
-branches:
-  - master
-# Also trigger on page_build, as well as release created events
-page_build:
-release:
-types: # This configuration does not affect the page_build event above
-- created
+name: "Hello Actions"
+description: "Greet someone"
+author: "octocat@github.com"
+
+inputs:
+  MY_NAME:
+    description: "Who to greet"
+    required: true
+    default: "World"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+branding:
+  icon: "mic"
+  color: "purple"
